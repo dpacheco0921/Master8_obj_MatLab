@@ -64,8 +64,8 @@ classdef master8obj < handle
             %       (5, ms, default)
             %   pinter: pulse interval (ms)
             %       (10, ms, default)
-            %   pnum: pulse number
-            %       (100, default)
+            %   pnum: train number (max 990)
+            %       (100s, default)
             %   imode: channel mode
             %       (0, OFF, default)
             %       (1, FREE-RUN)
@@ -102,12 +102,9 @@ classdef master8obj < handle
             obj.device.SetChannelDuration(ichannel, pdur*1e-3);
             obj.device.SetChannelM(ichannel, pnum);
             obj.device.SetChannelInterval(ichannel, pinter*1e-3);
-            
-            % for trigger SetChannelDelay
-            % for connecting channels: ConnectChannel( 8, 1);
+            % for connecting channels
             % connect channel 8 to channel 1
-            % for disconnecting channels: ConnectChannel( 8, 1);
-            % disconnect connection from channel 8 to channel 1
+            % obj.device.ConnectChannel( 8, 1);
             
         end
         
